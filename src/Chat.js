@@ -6,15 +6,19 @@ import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions";
 import CardGiftcardIcon from "@material-ui/icons/CardGiftcard";
 import GifIcon from "@material-ui/icons/Gif";
 import Message from "./Message";
+import { useSelector } from "react-redux";
+import { selectUser,selectChannelId,selectChannelName } from "./features/userSlice";
 
 function Chat() {
+  const user = useSelector(selectUser);
+  const channelId = useSelector(selectChannelId);
+  const channelName = useSelector(selectChannelName);
+  
   return (
     <div className="chat">
-      <ChatHeader />
+      <ChatHeader channelName = {channelName} />
       <div className="chat__messages">
-        <Message/>
-        <Message />
-        <Message />
+        
       </div>
       <div className="chat__input">
         <AddCircleIcon fontSize="large" />
